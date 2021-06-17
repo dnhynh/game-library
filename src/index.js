@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from 'react-router-dom'
 
 import {
   ApolloClient,
@@ -13,17 +14,35 @@ import {
 } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  uri: 'http://localhost:4000',
   cache: new InMemoryCache()
 });
 
+export const GET_LIBRARY = gql`
+  query GetLibrary($filter: String) {
+    library(filter: $filter) {
+      games {
+        publisher
+        name
+      }
+    }
+  }
+`;
+
+client
+  .query({
+    query: GET_LIBRARY
+  })
+  .then(result => console.log(result));
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ApolloProvider>,
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ApolloProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
