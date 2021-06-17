@@ -12,5 +12,4 @@
 
 5. Assuming the game library would not be updated super frequently the app benefit from some kind of caching solution. Not sure what would be best here as I have not implemented any caching strategies before. Maybe a separate caching layer on the cloud since records would be in the millions.
 
-
-
+6. I realized that a last minute change I did without testing had broken the server so I pushed a fix today to main. The relevant code for submission is at the initial commit. Also realized that server code was inaccessible from this repo. https://github.com/dnhynh/Game-Library-Server
