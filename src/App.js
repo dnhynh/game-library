@@ -1,6 +1,6 @@
 import './App.css'
-import { useQuery, gql } from '@apollo/client'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { gql } from '@apollo/client'
+import { Route } from 'react-router-dom'
 import Header from "./components/Header"
 import Library from "./components/Library"
 import AddGame from "./components/AddGame"

@@ -9,31 +9,12 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  gql
 } from '@apollo/client';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
   cache: new InMemoryCache()
 });
-
-export const GET_LIBRARY = gql`
-  query GetLibrary($filter: String) {
-    library(filter: $filter) {
-      games {
-        publisher
-        name
-      }
-    }
-  }
-`;
-
-client
-  .query({
-    query: GET_LIBRARY
-  })
-  .then(result => console.log(result));
 
 ReactDOM.render(
   <BrowserRouter>
