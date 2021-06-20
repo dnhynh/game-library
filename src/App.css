@@ -31,6 +31,10 @@ body {
   margin-top: 10px;
 }
 
+.game-block {
+  padding: 20px;
+}
+
 /* Spinner Animation TODO: Move to seperate file */
 
 .lds-ring {
